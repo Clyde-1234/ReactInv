@@ -30,11 +30,12 @@ export default function PageHeader() {
       }
 
     return(
-        <header className=" flex items-center fixed h-10 left-0 top-0 bg-slate-700 justify-between w-screen">
+        <header className=" flex items-center fixed h-10 left-0 top-0 pl-2 pr-2 bg-slate-700 justify-between w-screen">
             <div className=" h-6">
                 <span className="">App name here</span>
             </div>
 
+            <button onClick={rickroll} className=" bg-transparent text-xs">Click me!</button>
 
             <div>
                 <button onClick={signOut} className="text-xs">Log-out</button>

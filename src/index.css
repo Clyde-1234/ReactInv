@@ -51,9 +51,23 @@ button {
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+button.sideNavButton {
+  @apply bg-slate-800 p-0 w-full place-items-center
+}
+
+button.sideNavButton:hover {
+  @apply bg-slate-900
+}
+
+button.sideNavButton:focus,
+button.sideNavButton:focus-visible {
+  @apply bg-slate-900
 }
 
 @media (prefers-color-scheme: light) {
