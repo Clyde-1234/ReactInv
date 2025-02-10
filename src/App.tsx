@@ -6,6 +6,9 @@ import Home from './pages/Home'
 import './App.css'
 import { sessionAtom } from "./atoms";
 import { useAtom } from "jotai";
+import Inventory from './pages/Inventory';
+import ItemGroups from './pages/ItemGroups';
+import ClientPage from './pages/ClientPage';
 
 interface MainProps{
     children: ReactNode
@@ -34,6 +37,30 @@ function App() {
           element={
             <ProtectedRoute>
               <Home />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/clients"
+          element={
+            <ProtectedRoute>
+              <ClientPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/itemgroups"
+          element={
+            <ProtectedRoute>
+              <ItemGroups />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/inventory"
+          element={
+            <ProtectedRoute>
+              <Inventory />
             </ProtectedRoute>
           }
         />
