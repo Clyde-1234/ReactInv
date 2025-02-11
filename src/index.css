@@ -65,10 +65,19 @@ button.sideNavButton:hover {
   @apply bg-slate-900
 }
 
-button.sideNavButton:focus,
-button.sideNavButton:focus-visible {
-  @apply bg-slate-900
+.transparent-button {
+  @apply bg-transparent p-3
 }
+
+.transparent-button:hover {
+  border-color: transparent;
+}
+
+.transparent-button:focus,
+.transparent-button:focus-visible {
+  outline: transparent;
+}
+
 
 @media (prefers-color-scheme: light) {
   :root {

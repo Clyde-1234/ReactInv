@@ -1,5 +1,5 @@
 import { useEffect} from 'react'
-
+import styles from './StyleModules/Sign-in.module.css'
 import { Link, Navigate } from 'react-router-dom'
 
 import { sessionAtom } from '../atoms.ts'
@@ -46,21 +46,29 @@ function SignInUI() {
 
   if (!session) {
     return (
-        <div className=' flex-col'>
-            <button onClick={signUpWithGoogle}>
-                Sign with Google
-            </button>
+        <div className=' flex-col space-y-4'>
+          <form action="">
+              <h2 className=' pt-16 text-2xl mb-4'>Sign up with email</h2>
+              <p className=' '>
+                  Already have an account? <Link to={"/signin"}>Sign in!</Link>
+              </p>
+              <div className='flex flex-col items-center'>
+                <input type="email" name="email" id="email" className={styles.input} placeholder='Email'/>
+                <input type="password" name="password" id="password" className={styles.input} placeholder='Password' />
+              </div>
+              <span> or </span>
+              
+          </form>
 
-            <button onClick={signUpWithFacebook}>
-                Sign with Facebook
-            </button>
-            {/* <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} /> */}
-            <form action="">
-                <h2 className=' pt-16 text-lg'>Sign up with email</h2>
-                <p>
-                    Already have an account? <Link to={"/signin"}>Sign in!</Link>
-                </p>
-            </form>
+          <button onClick={signUpWithGoogle}>
+              Sign with Google
+          </button>
+
+          <button onClick={signUpWithFacebook}>
+              Sign with Facebook
+          </button>
+          {/* <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} /> */}
+            
         </div>  
   )
   }
