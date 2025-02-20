@@ -1,4 +1,7 @@
-For the .env data, please contact Clyde Justine @ github or facebook
+set-up:
+npm install
 
-Facebook
-https://www.facebook.com/clyde.justine.1420/
+make a .env file
+copy and paste required url and anon keys for .env found on the submitted txt file
+
+idk the rest =3

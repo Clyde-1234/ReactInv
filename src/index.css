@@ -78,6 +78,15 @@ button.sideNavButton:hover {
   outline: transparent;
 }
 
+svg:hover{
+  filter: drop-shadow(0 0 5px #f1f5f9); /* Add a shadow on hover */
+  transform: scale(1.2);
+  transition: all 0.3s ease;
+}
+
+.text-style-2{
+  @apply text-gray-300 text-xs
+}
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -91,3 +100,4 @@ button.sideNavButton:hover {
     background-color: #f9f9f9;
   }
 }
+

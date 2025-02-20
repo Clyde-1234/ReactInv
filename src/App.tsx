@@ -9,6 +9,7 @@ import { useAtom } from "jotai";
 import Inventory from './pages/Inventory';
 import ItemGroups from './pages/ItemGroups';
 import ClientPage from './pages/ClientPage';
+import StoreHouse from './pages/StoreHouse';
 
 interface MainProps{
     children: ReactNode
@@ -61,6 +62,14 @@ function App() {
           element={
             <ProtectedRoute>
               <Inventory />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/storehouse"
+          element={
+            <ProtectedRoute>
+              <StoreHouse />
             </ProtectedRoute>
           }
         />

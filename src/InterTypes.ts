@@ -1,6 +1,12 @@
+import { ReactNode } from "react"
+
 export interface ItemData{
-    name: String,
-    current: Number,
-    maxAmount: Number,
-    
+    name: string,
+    current: number,
+    maxAmount: number,
+    color: 'red' | 'orange' | 'slate' | 'green'
+}
+
+export interface ComponentProps{
+    children: ReactNode
 }

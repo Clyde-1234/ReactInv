@@ -29,3 +29,5 @@ package-lock.json
 #project dir
 supabaseClient.ts
 .env
+
+*storybook.log

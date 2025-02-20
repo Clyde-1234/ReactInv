@@ -1,10 +1,9 @@
 @import "tailwindcss";
 
 .input{
-    @apply w-72 h-8 pl-2 m-1;
+    @apply w-72 h-8 pl-2 m-1 bg-slate-500;
     border-radius: 8px;
     transition: border-color 0.25s;
-    background-color: #1a1a1a;
 }
 
 .input:hover,
