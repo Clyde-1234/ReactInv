@@ -40,11 +40,13 @@ function SignInUI() {
     });
   };
 
-  const signUpWithFacebook = async () => {
-    await supabase.auth.signInWithOAuth({
-      provider: 'facebook',
-    });
-  };
+  const singInWithEmail = async () => {
+    const {error} = await supabase.auth.signInWithPassword({email,password});
+    if(error){
+      alert("login with email failed " + error.message)
+    }
+  }
+
   //@ts-ignore
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent form submission
@@ -66,11 +68,11 @@ function SignInUI() {
       <div className="flex-col space-y-4 ">
         <form
           onSubmit={handleSubmit}
-          className="flex-col items-center place-items-center"
+          className="flex-col space-y-4 items-center place-items-center"
         >
           <h2 className="pt-16 text-2xl mb-4">Sign in with email</h2>
           <p>
-            Don't have an account? <Link to={'/signin'}>Sign up!</Link>
+            Don't have an account?  <Link to='/signup'>Sign up!</Link>
           </p>
           <div className="flex flex-col items-center">
             <input
@@ -91,7 +93,7 @@ function SignInUI() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button type="submit" className="mt-4">
+            <button type="submit" className="mt-4" onClick={singInWithEmail}>
               Sign in with Email
             </button>
             
@@ -106,9 +108,21 @@ function SignInUI() {
           
         </form>
 
-        <button onClick={signUpWithGoogle}>Sign with Google</button>
+        <div className="flex justify-center w-full">
+          <button
+            onClick={signUpWithGoogle}
+            className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-md shadow-sm bg-white hover:bg-gray-100"
+          >
+            <img
+              src="https://lh3.googleusercontent.com/COxitqgJr1sJnIDe8-jiKhxDx1FrYbtRHKJ9z_hELisAlapwE9LUPh6fcXIfb5vwpbMl4xl9H9TRFPc5NOO8Sb3VSgIBrfRYvW6cUA"
+              alt="Google Logo"
+              className="w-5 h-5"
+            />
+            Sign in with Google
+          </button>
+          <Link to='/prelim' className=' text-red-600'>CLICK ME FOR COMPONENT PRELIMS!!!</Link>
+        </div>
 
-        <button onClick={signUpWithFacebook}>Sign with Facebook</button>
       </div>
     );
   } else {

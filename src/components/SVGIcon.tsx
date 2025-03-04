@@ -5,10 +5,10 @@ interface SVGIconProps {
     width?: string | number;
     height?: string | number;
     className?: string;
-    children: ReactNode;
+    children?: ReactNode;
 };
 
-const SVGIcon: React.FC<SVGIconProps> = ({ width = '25', height = '25', className,children , ...props }) => {  // Default width/height
+const SVGIcon: React.FC<SVGIconProps> = ({ width = '25', height = '25', className, children , ...props }) => {  // Default width/height
     return (
       <svg
         width={width}         

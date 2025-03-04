@@ -1,6 +1,6 @@
 import { BrowserRouter } from "react-router-dom";
 import { within, userEvent } from '@storybook/test';
-import SignInUI from "../pages/Sign-in";
+import SignInUI from "../pages/SignIn";
 import '../index.css'
 import '../pages/StyleModules/Sign-in.module.css'
 

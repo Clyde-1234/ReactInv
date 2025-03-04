@@ -1,4 +1,4 @@
-import SignInUI from './pages/Sign-in';
+import SignInUI from './pages/SignIn';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ReactNode } from 'react';
 import Error404 from './pages/Error404';
@@ -10,6 +10,8 @@ import Inventory from './pages/Inventory';
 import ItemGroups from './pages/ItemGroups';
 import ClientPage from './pages/ClientPage';
 import StoreHouse from './pages/StoreHouse';
+import Signup from './pages/SignUp';
+import Prelim from './componentPrelimsFiles/page/prelim';
 
 interface MainProps{
     children: ReactNode
@@ -72,6 +74,19 @@ function App() {
               <StoreHouse />
             </ProtectedRoute>
           }
+        />
+        <Route
+          path="/signup"
+          element={
+            <Signup />
+          }
+        />
+        <Route
+          path='/prelim'
+          element={
+            <Prelim/>
+          }
+        
         />
         <Route path='*' element={<Error404/>}/>
       </Routes>
