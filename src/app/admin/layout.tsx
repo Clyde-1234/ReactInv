@@ -129,4 +129,3 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   );
 }
 
-export const supabase = createClientComponentClient();

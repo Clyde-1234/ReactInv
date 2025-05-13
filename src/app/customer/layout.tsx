@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { FiMenu } from "react-icons/fi";
-import { FaHome, FaUser, FaPhone, FaTools } from "react-icons/fa";
+import { FaHome, FaUser } from "react-icons/fa";
 import SideNavButton from "@/components/SideNavButton";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
@@ -57,7 +57,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           transition-width duration-300 ease-in-out`}>
   
           <h2 className={`text-2xl font-bold mb-4 transition-opacity duration-300 ${expandSideNav ? 'opacity-100 block' : 'opacity-0 hidden'} lg:block lg:opacity-100`}>
-            Pawspace
+            {"Lee's"} Catering Services
           </h2>
   
           <SideNavButton 

@@ -5,24 +5,42 @@ import { useRouter } from 'next/navigation';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Loader2 } from 'lucide-react';
 
+const supabase = createClientComponentClient(); 
+
 export default function Callback() {
   const router = useRouter();
   const [error, setError] = useState<string | null>(null);
 
-  const supabase = createClientComponentClient(); // Use shared client
-
   useEffect(() => {
     const checkSession = async () => {
       try {
-        const { data, error } = await supabase.auth.getSession(); // Use shared client
+        const { data, error } = await supabase.auth.getSession(); 
         if (error) {
-          console.error('Error fetching session:', error.message);
           setError(error.message);
           return;
         }
 
         if (data.session) {
-          router.push('/admin');
+          const res = await fetch('/api/admin/callback',{
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email: data.session.user.email }),
+          })
+
+          if(res.ok) {router.push('/admin');}
+            
+          else {
+            const errorMessage = await res.json()
+            setError(errorMessage.error + " redirecting to login page...")
+
+            setTimeout(() => {
+              supabase.auth.signOut();
+              router.push('/admin/login');
+            }, 3000);
+          }
+
         } else {
           setError(error);
         }
@@ -38,7 +56,7 @@ export default function Callback() {
   return (
     <>
       {error ? (
-        <div>Error: {error}</div>
+        <div className=' text-white'>Error: {error}</div>
       ) : (
         <Loader2 className='text-white animate-spin' />
       )}
